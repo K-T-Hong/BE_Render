@@ -13,6 +13,7 @@ router.get("/comments", async (req, res) => {
     });
     res.json(comments);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "전체 댓글 목록 조회 실패" });
   }
 });
@@ -27,6 +28,7 @@ router.get("/products/:productId/comments", async (req, res) => {
     });
     res.json(comments);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "상품 댓글 조회 실패" });
   }
 });
@@ -41,6 +43,7 @@ router.get("/article/:articleId/comments", async (req, res) => {
     });
     res.json(comments);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "게시글 댓글 조회 실패" });
   }
 });
@@ -73,6 +76,7 @@ router.post("/products/:productId/comments", async (req, res) => {
     });
     res.status(201).json(comment);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "상품 댓글 등록 실패" });
   }
 });
@@ -105,6 +109,7 @@ router.post("/article/:articleId/comments", async (req, res) => {
     });
     res.status(201).json(comment);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "게시글 댓글 등록 실패" });
   }
 });
@@ -128,6 +133,7 @@ router.patch("/comments/:id", async (req, res) => {
     });
     res.json(comment);
   } catch (err) {
+    console.error(err);
     res.status(400).json({ error: "댓글 수정 실패" });
   }
 });
@@ -140,6 +146,7 @@ router.delete("/comments/:id", async (req, res) => {
     });
     res.status(204).send();
   } catch (err) {
+    console.error(err);
     res.status(400).json({ error: "댓글 삭제 실패" });
   }
 });

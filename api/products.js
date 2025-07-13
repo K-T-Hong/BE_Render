@@ -45,6 +45,7 @@ router.get("/", async (req, res) => {
 
     res.json({ list, totalCount, page, pageSize });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "상품 목록 조회 실패" });
   }
 });
@@ -69,6 +70,7 @@ router.get("/:id", async (req, res) => {
     }
     res.json(product);
   } catch (err) {
+    console.error(err);
     res.status(400).json({ error: "잘못된 상품 ID" });
   }
 });
@@ -118,6 +120,7 @@ router.post("/", async (req, res) => {
     });
     res.status(201).json(product);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "상품 등록 실패" });
   }
 });
@@ -176,6 +179,7 @@ router.patch("/:id", async (req, res) => {
     });
     res.json(product);
   } catch (err) {
+    console.error(err);
     res.status(400).json({ error: "상품 수정 실패" });
   }
 });
@@ -188,6 +192,7 @@ router.delete("/:id", async (req, res) => {
     });
     res.status(204).send();
   } catch (err) {
+    console.error(err);
     res.status(400).json({ error: "상품 삭제 실패" });
   }
 });
