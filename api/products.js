@@ -80,11 +80,11 @@ router.post("/", async (req, res) => {
     if (
       typeof name !== "string" ||
       name.trim().length < 1 ||
-      name.trim().length > 50
+      name.trim().length > 30
     ) {
       return res
         .status(400)
-        .json({ error: "상품명은 50자 이내로 입력해주세요." });
+        .json({ error: "상품명은 30자 이내로 입력해주세요." });
     }
     if (
       typeof description !== "string" ||
@@ -132,11 +132,11 @@ router.patch("/:id", async (req, res) => {
       if (
         typeof name !== "string" ||
         name.trim().length < 1 ||
-        name.trim().length > 50
+        name.trim().length > 30
       ) {
         return res
           .status(400)
-          .json({ error: "상품명은 50자 이내로 입력해주세요." });
+          .json({ error: "상품명은 30자 이내로 입력해주세요." });
       }
       updateData.name = name.trim();
     }
