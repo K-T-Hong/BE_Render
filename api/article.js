@@ -77,20 +77,20 @@ router.post("/", async (req, res) => {
     if (
       typeof title !== "string" ||
       title.trim().length < 1 ||
-      title.trim().length > 20
+      title.trim().length > 50
     ) {
       return res
         .status(400)
-        .json({ error: "제목은 20자 이내로 입력해주세요." });
+        .json({ error: "제목은 50자 이내로 입력해주세요." });
     }
     if (
       typeof content !== "string" ||
       content.trim().length < 1 ||
-      content.trim().length > 200
+      content.trim().length > 1000
     ) {
       return res
         .status(400)
-        .json({ error: "내용은 200자 이내로 입력해주세요." });
+        .json({ error: "내용은 1000자 이내로 입력해주세요." });
     }
     const article = await prisma.article.create({
       data: {
@@ -114,11 +114,11 @@ router.patch("/:id", async (req, res) => {
       if (
         typeof title !== "string" ||
         title.trim().length < 1 ||
-        title.trim().length > 20
+        title.trim().length > 50
       ) {
         return res
           .status(400)
-          .json({ error: "제목은 20자 이내로 입력해주세요." });
+          .json({ error: "제목은 50자 이내로 입력해주세요." });
       }
       updateData.title = title.trim();
     }
@@ -126,11 +126,11 @@ router.patch("/:id", async (req, res) => {
       if (
         typeof content !== "string" ||
         content.trim().length < 1 ||
-        content.trim().length > 200
+        content.trim().length > 1000
       ) {
         return res
           .status(400)
-          .json({ error: "내용은 200자 이내로 입력해주세요." });
+          .json({ error: "내용은 1000자 이내로 입력해주세요." });
       }
       updateData.content = content.trim();
     }

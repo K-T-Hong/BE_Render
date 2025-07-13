@@ -80,20 +80,20 @@ router.post("/", async (req, res) => {
     if (
       typeof name !== "string" ||
       name.trim().length < 1 ||
-      name.trim().length > 10
+      name.trim().length > 50
     ) {
       return res
         .status(400)
-        .json({ error: "상품명은 10자 이내로 입력해주세요." });
+        .json({ error: "상품명은 50자 이내로 입력해주세요." });
     }
     if (
       typeof description !== "string" ||
       description.trim().length < 10 ||
-      description.trim().length > 100
+      description.trim().length > 1000
     ) {
       return res
         .status(400)
-        .json({ error: "상품 설명은 10 ~ 100자 사이로 입력해주세요." });
+        .json({ error: "상품 설명은 10 ~ 1000자 사이로 입력해주세요." });
     }
     const priceNumber = Number(price);
     if (isNaN(priceNumber) || priceNumber < 0) {
@@ -132,11 +132,11 @@ router.patch("/:id", async (req, res) => {
       if (
         typeof name !== "string" ||
         name.trim().length < 1 ||
-        name.trim().length > 10
+        name.trim().length > 50
       ) {
         return res
           .status(400)
-          .json({ error: "상품명은 10자 이내로 입력해주세요." });
+          .json({ error: "상품명은 50자 이내로 입력해주세요." });
       }
       updateData.name = name.trim();
     }
@@ -144,11 +144,11 @@ router.patch("/:id", async (req, res) => {
       if (
         typeof description !== "string" ||
         description.trim().length < 10 ||
-        description.trim().length > 100
+        description.trim().length > 1000
       ) {
         return res
           .status(400)
-          .json({ error: "상품 설명은 10 ~ 100자 사이로 입력해주세요." });
+          .json({ error: "상품 설명은 10 ~ 1000자 사이로 입력해주세요." });
       }
       updateData.description = description.trim();
     }
