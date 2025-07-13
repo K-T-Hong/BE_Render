@@ -100,6 +100,7 @@ router.post("/", async (req, res) => {
     });
     res.status(201).json(article);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "게시글 등록 실패" });
   }
 });
